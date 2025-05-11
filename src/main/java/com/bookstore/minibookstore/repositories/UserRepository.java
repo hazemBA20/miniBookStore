@@ -7,19 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bookstore.minibookstore.models.User;
-@Component
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class UserRepository {
-    private final List<User> Users;
+    private final List<User> users;
 
 
-   public UserRepository(List<User> Users) {
-       this.Users = Users;
-   }
    public UserRepository() {
-       Users = new ArrayList<>();
+       users = new ArrayList<>();
    }
    public List<User> getUsers() {
-       return Users;
+       return users;
    }
 
+    public void save(User user) {
+       users.add(user);
+    }
 }

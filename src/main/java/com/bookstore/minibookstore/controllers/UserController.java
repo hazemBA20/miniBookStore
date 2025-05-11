@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(path= "/users")
 public class UserController {
     private final UserService userService;
@@ -21,9 +21,9 @@ public class UserController {
     }
 
     @GetMapping
-    public String showUsers() {
-      List<User> users= userService.showUsers();
-        return "<html><body>ok it s working<body><html>";//does not work
+    public List<User> showUsers() {
+      return  userService.showUsers();
+
     }
 
 }
