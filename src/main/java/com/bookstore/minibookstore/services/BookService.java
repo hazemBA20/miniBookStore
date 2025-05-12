@@ -18,4 +18,13 @@ public class BookService {
     public List<Book> getBooks() {
         return bookRepository.getBooks();
     }
+
+    public Book getBook(int id) {
+        List<Book> target=bookRepository.getBooks();
+        return target.get(id - 1);
+    }
+
+    public void addBook(Book book) {
+         bookRepository.save(book);
+    }
 }

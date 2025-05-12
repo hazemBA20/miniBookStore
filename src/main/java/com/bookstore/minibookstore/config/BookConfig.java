@@ -11,7 +11,10 @@ public class BookConfig {
     @Bean
     public CommandLineRunner initData(BookRepository bookRepository) {
         return args -> {
-            bookRepository.save(new Book(4 , "learn web dev" , "hazem" , 200 ));
+            bookRepository.save(new Book(1, "learn javascript" , "hazem" , 200 ));
+            bookRepository.save(new Book(2 , "learn react" , "Bahae" , 200 ));
+
+
 
         };
     }

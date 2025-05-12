@@ -3,14 +3,15 @@ package com.bookstore.minibookstore.controllers;
 import com.bookstore.minibookstore.models.User;
 import com.bookstore.minibookstore.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(path= "/users")
 public class UserController {
     private final UserService userService;
@@ -24,5 +25,12 @@ public class UserController {
       return  userService.showUsers();
 
     }
+    //this method was created just to test out the template generation , igonre it
+    @GetMapping(path = "{test}")
+    public String getPage(@PathVariable("test") String test , Model model) {
+        model.addAttribute("greeting", "hello the rendering worked just fine");
+        return "hello";
+    }
+
 
 }
