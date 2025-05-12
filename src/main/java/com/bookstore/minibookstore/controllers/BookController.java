@@ -1,28 +1,25 @@
 package com.bookstore.minibookstore.controllers;
 
-import com.bookstore.minibookstore.models.User;
-import com.bookstore.minibookstore.services.UserService;
+import com.bookstore.minibookstore.models.Book;
+import com.bookstore.minibookstore.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(path= "/users")
-public class UserController {
-    private final UserService userService;
+@RequestMapping(path = "/books")
+public class BookController {
+    private final BookService bookService;
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
     }
 
     @GetMapping
-    public List<User> showUsers() {
-      return  userService.showUsers();
-
+    public List<Book> getBooks() {
+        return bookService.getBooks();
     }
-
 }
