@@ -2,17 +2,24 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Books</title>
 </head>
 <body  >
 
-<div class="book-container" style="background-color: lightblue ; border-radius: 40px; width: 300px;">
-    <h1 th:text="${book0}"></h1>
+<div class="container" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+">
 
-</div>
-<div class="book-container" style="background-color: lightblue ; border-radius: 40px; width: 300px;">
-
-    <h1 th:text="${book1}"></h1>
+    <div th:each="book : ${books}" class="book-container">
+        <strong th:text="${book.name}"></strong>
+        <h3 th:text="${book.author}"></h3>
+        <div th:text="${book.price}"></div>
+    </div>
 </div>
 </body>
 </html>

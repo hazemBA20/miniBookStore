@@ -13,6 +13,10 @@ public class BookConfig {
         return args -> {
             bookRepository.save(new Book(1, "learn javascript" , "hazem" , 200 ));
             bookRepository.save(new Book(2 , "learn react" , "Bahae" , 200 ));
+            bookRepository.save(new Book(2 , "learn react" , "Bahae" , 200 ));
+            bookRepository.save(new Book(2 , "learn react" , "Bahae" , 200 ));
+            bookRepository.save(new Book(2 , "learn react" , "Bahae" , 200 ));
+            bookRepository.save(new Book(2 , "learn react" , "Bahae" , 200 ));
 
 
 

@@ -19,10 +19,7 @@ public class BookService {
 
     public String getBooks(Model model) {
         List<Book> target = bookRepository.getBooks();
-        for (int i = 0; i < target.size(); i++) {
-            Book book = target.get(i);
-            model.addAttribute("book"+i, book);
-        }
+       model.addAttribute("books", target);
         return "hello";
 
 
