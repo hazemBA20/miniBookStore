@@ -21,8 +21,8 @@ public class BookController {
 
     @GetMapping
     public String getBooks(Model model) {
+        System.out.println("/books get");
        return bookService.getBooks(model);
-
 
     }
     @GetMapping(path = "{bookId}")

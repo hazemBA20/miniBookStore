@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class UserConfig {
     @Bean
     public CommandLineRunner startupConfig(UserRepository userRepository) {
+        System.out.println("config started");
         return args -> {
             userRepository.save(new User(1L, "hazem",
                     "hazem@gmail.com","hazem1213" ));

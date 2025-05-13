@@ -22,4 +22,12 @@ public class UserRepository {
     public void save(User user) {
        users.add(user);
     }
+    public  User findByName(String name) {
+       for (User user : users) {
+           if (user.getName().equals(name)){
+               return user;
+           }
+       }
+       return null;
+    }
 }
