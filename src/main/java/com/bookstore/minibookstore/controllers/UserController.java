@@ -25,12 +25,7 @@ public class UserController {
       return  userService.showUsers();
 
     }
-    //this method was created just to test out the template generation , igonre it
-    @GetMapping(path = "{test}")
-    public String getPage(@PathVariable("test") String test , Model model) {
-        model.addAttribute("greeting", "hello the rendering worked just fine");
-        return "hello";
-    }
+
 
 
 }

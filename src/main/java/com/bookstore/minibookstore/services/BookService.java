@@ -1,9 +1,11 @@
 package com.bookstore.minibookstore.services;
 
 import com.bookstore.minibookstore.models.Book;
+import com.bookstore.minibookstore.models.User;
 import com.bookstore.minibookstore.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -15,8 +17,15 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public List<Book> getBooks() {
-        return bookRepository.getBooks();
+    public String getBooks(Model model) {
+        List<Book> target = bookRepository.getBooks();
+        for (int i = 0; i < target.size(); i++) {
+            Book book = target.get(i);
+            model.addAttribute("book"+i, book);
+        }
+        return "hello";
+
+
     }
 
     public Book getBook(int id) {

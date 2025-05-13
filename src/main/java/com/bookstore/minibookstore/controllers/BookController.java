@@ -3,22 +3,27 @@ package com.bookstore.minibookstore.controllers;
 import com.bookstore.minibookstore.models.Book;
 import com.bookstore.minibookstore.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@RestController
+@Controller
 @RequestMapping(path = "/books")
 public class BookController {
     private final BookService bookService;
+
+
     @Autowired
     public BookController(BookService bookService) {
         this.bookService = bookService;
+
     }
 
     @GetMapping
-    public List<Book> getBooks() {
-        return bookService.getBooks();
+    public String getBooks(Model model) {
+       return bookService.getBooks(model);
+
+
     }
     @GetMapping(path = "{bookId}")
     public Book getBook(@PathVariable("bookId") int bookId) {
