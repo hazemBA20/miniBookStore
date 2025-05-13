@@ -1,7 +1,6 @@
 package com.bookstore.minibookstore.services;
 
 import com.bookstore.minibookstore.models.Book;
-import com.bookstore.minibookstore.models.User;
 import com.bookstore.minibookstore.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ public class BookService {
     public String getBooks(Model model) {
         List<Book> target = bookRepository.getBooks();
        model.addAttribute("books", target);
-        return "hello";
+        return "books";
 
 
     }
